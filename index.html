@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка</title>
+    <style>
+        /* Загальні стилі */
+        body {
+            font-family: 'Verdana', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fff4e6, #ffe4cc);
+            color: #333;
+        }
+
+        header {
+            padding: 20px;
+            background: linear-gradient(90deg, #ff8e64, #f3551c);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        header img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffe4cc;
+        }
+
+          .login-btn {
+            background-color: #ffcc00;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #e6b800;
+        }
+
+        /* Головна сторінка */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #ff8e64;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            width: 80%;
+            border-radius: 50%;
+        }
+
+        .main-content h1 {
+            font-size: 3em;
+            color: #ff4500;
+            margin: 20px 0;
+        }
+
+        .main-content p {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            background: #ff7f50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="icon.webp" alt="Логотип">
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="offers.html">Пропозиції</a></li>
+                <li><a href="order.html">Замовлення</a></li>
+                <li><a href="contact.html">Контакти</a></li>
+            </ul>
+        </nav>
+        <a href="#login" class="login-btn">Вхід</a>
+    </header>
+
+    <!-- Головний контент -->
+    <div class="main-content">
+        <div class="logo">
+            <img src="icon.webp" alt="Логотип">
+        </div>
+        <h1>Подаруйте незабутні враження!</h1>
+        <p>Виберіть найкращі подарунки для своїх близьких: від політів до кулінарних майстеркласів.</p>
+    </div>
+
+    <footer>
+        <p>© 2024 All Rights Reserved</p>
+    </footer>
+</body>
+</html>

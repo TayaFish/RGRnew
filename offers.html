@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подаруй враження!</title>
+    <style>
+        /* Базові стилі */
+        body {
+            font-family: 'Verdana', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fff4e6, #ffe4cc);
+            color: #333;
+        }
+
+        header {
+            padding: 20px;
+            background: linear-gradient(90deg, #ff8e64, #f3551c);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        header img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffe4cc;
+        }
+
+        .login-btn {
+            background-color: #ffcc00;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #e6b800;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 80%;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background: white;
+            padding: 20px;
+        }
+
+        .slide img {
+            width: 60%;
+            max-height: 700px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .slide h3 {
+            font-size: 1.5em;
+            color: #ff4500;
+            margin: 10px 0;
+        }
+
+        .slide p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2em;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .slider-buttons button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        footer {
+            background: #ff7f50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="icon.webp" alt="Логотип">
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="offers.html">Пропозиції</a></li>
+                <li><a href="order.html">Замовлення</a></li>
+                <li><a href="contact.html">Контакти</a></li>
+            </ul>
+        </nav>
+        <a href="#login" class="login-btn">Вхід</a>
+    </header>
+
+    <!-- Слайдер -->
+    <div class="slider-container" id="offers">
+        <div class="slides">
+            <div class="slide">
+                <img src="product2.jpg" alt="Політ на повітряній кулі">
+                <h3>Незабутні враження</h3>
+                <p>Політ на повітряній кулі, що дозволить насолодитися незрівнянними видами.</p>
+            </div>
+            <div class="slide">
+                <img src="product3.avif" alt="Адреналіновий подарунок">
+                <h3>Адреналіновий подарунок</h3>
+                <p>Випробуйте свої сили на автоперегонах та отримайте порцію адреналіну!</p>
+            </div>
+            <div class="slide">
+                <img src="product4.avif" alt="Кулінарний майстерклас">
+                <h3>Кулінарія - це життя</h3>
+                <p>Навчіться готувати страви, які завоюють серце кожного гурмана.</p>
+            </div>
+        </div>
+        <div class="slider-buttons">
+            <button id="prev">&lt;</button>
+            <button id="next">&gt;</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            const offset = -index * 100;
+            document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>
